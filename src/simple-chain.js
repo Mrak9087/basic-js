@@ -6,11 +6,12 @@ const chainMaker = {
     return this.arr.length;
   },
   addLink(value) {
-    this.arr.push('' + value);
+    this.arr.push('( ' + value + ' )');
     return this;
   },
   removeLink(position) {
-    if (typeof position !== 'number' || position <= 0 || position > this.arr.length || Math.trunc(position) !== position){
+    if (arguments === 0 ||typeof position !== 'number' || position <= 0 || position > this.arr.length || Math.trunc(position) !== position){
+      this.arr = [];
       throw new Error('wrong position');
     }
     this.arr.splice(position - 1, 1);
@@ -21,7 +22,7 @@ const chainMaker = {
     return this;
   },
   finishChain() {
-    let result = "( " + this.arr.join(" )~~( ") + " )";
+    let result = this.arr.join('~~');
     this.arr = [];
     return result;
   }

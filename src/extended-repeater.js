@@ -2,7 +2,7 @@ const CustomError = require("../extensions/custom-error");
 
 module.exports = function repeater(str, options) {
   str = '' + str;
-  let separator = '+';
+  this.separator = '+';
 
   if ('separator' in options){
     this.separator = options.separator;
@@ -27,7 +27,7 @@ module.exports = function repeater(str, options) {
   if ('repeatTimes' in options){
     let tmp = str;
     for (let i = 0; i < options.repeatTimes-1; i++){
-      str += separator + tmp;
+      str += this.separator + tmp;
     }
   }
 

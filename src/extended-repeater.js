@@ -16,6 +16,8 @@ module.exports = function repeater(str, options) {
 
       if ('additionSeparator' in options){
         str += options.additionSeparator;
+      } else {
+        str += "|";
       }
     }
   }
